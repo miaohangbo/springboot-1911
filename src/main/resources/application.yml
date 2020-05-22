@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.36.161.39:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  jpa:
+    database: MYSQL
+    generate-ddl: true
+    show-sql: true
+  mail:
+    host: smtp.qq.com
+    username: 824238833@qq.com
+    password: zuemmqcwlzlhbbci
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  redis:
+      database: 0
+      host: 121.36.161.39
+      port: 6379
+      password: 123456
+lance:
+  send: 824238833@qq.com
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml

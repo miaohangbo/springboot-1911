@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<body>
+    <form action="/registry" method="post">
+        用户名：<input type="text" name="username"><br>
+        邮箱:<input type="text" id="mail" name="mail"><br>
+        验证码:<input type="text" name="code"> <input type="button" value="获取验证码" onclick="getCode()"><br>
+        密码：<input type="password" name="password">
+        <input type="submit" value="注册">
+    </form>
+</body>
+<script>
+
+    function getCode(){
+       var mail= $('#mail').val();
+        alert(mail);
+        $.ajax({
+            type: 'POST',
+            url: "/sendMail",
+            data: {"mail":mail},
+            dataType: "json",
+            success: function (Response) {
+                alert(response)
+            },
+            error: function () {
+                alert("验证码发送失败，sorry")
+            }
+        });
+
+    }
+
+</script>
+</html>
